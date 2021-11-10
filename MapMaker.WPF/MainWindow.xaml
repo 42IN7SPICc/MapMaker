@@ -1,0 +1,32 @@
+﻿<Window x:Class="MapMaker.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MapMaker for Avans Wars" Height="500" Width="500"  WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+        <StackPanel Grid.Column="0" Orientation="Vertical">
+            <ComboBox x:Name="SelectedType">
+                <ComboBoxItem Content="Bushes"></ComboBoxItem>
+                <ComboBoxItem Content="Grass"></ComboBoxItem>
+                <ComboBoxItem Content="Street"></ComboBoxItem>
+                <ComboBoxItem Content="Sand"></ComboBoxItem>
+                <ComboBoxItem Content="Water"></ComboBoxItem>
+                <ComboBoxItem Content="Bridge"></ComboBoxItem>
+                <ComboBoxItem Content="Rocks"></ComboBoxItem>
+                <ComboBoxItem Content="Start"></ComboBoxItem>
+                <ComboBoxItem Content="End"></ComboBoxItem>
+            </ComboBox>
+            <Button x:Name="Export" Click="Export_OnClick">Export</Button>
+            <Button x:Name="Import" Click="Import_OnClick">Import</Button>
+        </StackPanel>
+        
+        <StackPanel Grid.Column="1" x:Name="Stack" HorizontalAlignment="Center"></StackPanel>
+    </Grid>
+</Window>

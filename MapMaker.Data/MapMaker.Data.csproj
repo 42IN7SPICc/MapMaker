@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Reference Include="PresentationFramework, Version=5.0.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+        <HintPath>C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App\5.0.9\PresentationFramework.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+</Project>
