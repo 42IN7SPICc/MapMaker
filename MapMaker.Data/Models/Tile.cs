@@ -16,14 +16,14 @@
 
     public enum TileType
     {
-        Bushes,
-        Grass,
-        Street,
-        Sand,
-        Water,
-        Bridge,
-        Rocks,
-        Start,
-        End
+        Bushes = 0,
+        Grass = 1,
+        Street = 2,
+        Sand = 3,
+        Water = 4,
+        Bridge = 5,
+        Rocks = 6,
+        Start = 7,
+        End = 8
     }
 }

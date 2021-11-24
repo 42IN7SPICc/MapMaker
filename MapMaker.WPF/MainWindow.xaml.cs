@@ -1,8 +1,10 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 using MapMaker.Data;
 using MapMaker.Data.Extensions;
@@ -78,6 +80,10 @@ namespace MapMaker.WPF
 
         private void Export_OnClick(object sender, RoutedEventArgs e)
         {
+            _builder.Title = TbTitle.Text;
+            _builder.Description = TbDescription.Text;
+            _builder.UnlockThreshold = int.Parse(TbUnlockThreshold.Text);
+            
             var saveFileDialog = new SaveFileDialog
             {
                 Filter = "JSON file (*.json)|*.json"
@@ -91,6 +97,7 @@ namespace MapMaker.WPF
 
         private void Import_OnClick(object sender, RoutedEventArgs e)
         {
+            
             var openFileDialog = new OpenFileDialog
             {
                 Filter = "JSON file (*.json)|*.json"
@@ -99,7 +106,40 @@ namespace MapMaker.WPF
             if (openFileDialog.ShowDialog() == true)
             {
                 _builder.Import(openFileDialog.FileName);
+                
+                TbTitle.Text = _builder.Title;
+                TbDescription.Text = _builder.Description;
+                TbUnlockThreshold.Text = _builder.UnlockThreshold.ToString();
+                
                 LoadMap();
+            }
+        }
+        
+        private static readonly Regex _regex = new Regex("[^0-9.-]+"); //regex that matches disallowed text
+        private static bool IsTextAllowed(string text)
+        {
+            return !_regex.IsMatch(text);
+        }
+
+        private void TbUnlockThreshold_OnPreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !IsTextAllowed(e.Text);
+        }
+
+        private void TbUnlockThreshold_OnPasting(object sender, DataObjectPastingEventArgs e)
+        {
+            if (e.DataObject.GetDataPresent(typeof(string)))
+            {
+                var text = (string)e.DataObject.GetData(typeof(string));
+                
+                if (!IsTextAllowed(text))
+                {
+                    e.CancelCommand();
+                }
+            }
+            else
+            {
+                e.CancelCommand();
             }
         }
     }

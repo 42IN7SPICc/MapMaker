@@ -11,6 +11,9 @@ namespace MapMaker.Data.Models
 {
     public class Builder
     {
+        public string Title;
+        public string Description;
+        public int UnlockThreshold;
         public List<Tile> Map = new();
         public const int Size = 25;
 
@@ -40,7 +43,7 @@ namespace MapMaker.Data.Models
             }
             catch (Exception)
             {
-                MessageBox.Show("Could not serialize");
+                MessageBox.Show("Could not export");
             }
         }
 
@@ -52,15 +55,18 @@ namespace MapMaker.Data.Models
                 var json = JsonSerializer.Deserialize<Json>(contents);
                 Map.Clear();
 
+                Title = json.title;
+                Description = json.description;
+                UnlockThreshold = json.unlockThreshold;
+
                 foreach (var tile in json.tiles)
                 {
-                    Enum.TryParse(tile.type.FirstCharToUpper(), out TileType type);
-                    Map.Add(new Tile(tile.x, tile.y, type));
+                    Map.Add(new Tile(tile.x, tile.y, (TileType) tile.type));
                 }
             }
             catch (Exception)
             {
-                MessageBox.Show("Could not deserialize");
+                MessageBox.Show("Could not import");
             }
         }
     }

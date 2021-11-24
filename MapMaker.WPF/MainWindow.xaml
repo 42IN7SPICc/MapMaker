@@ -12,6 +12,9 @@
         </Grid.ColumnDefinitions>
         
         <StackPanel Grid.Column="0" Orientation="Vertical">
+            <TextBox x:Name="TbTitle" Text="Level Name"></TextBox>
+            <TextBox x:Name="TbDescription" Text="Level Description"></TextBox>
+            <TextBox x:Name="TbUnlockThreshold" Text="0" PreviewTextInput="TbUnlockThreshold_OnPreviewTextInput" DataObject.Pasting="TbUnlockThreshold_OnPasting"></TextBox>
             <ComboBox x:Name="SelectedType">
                 <ComboBoxItem Content="Bushes"></ComboBoxItem>
                 <ComboBoxItem Content="Grass"></ComboBoxItem>
