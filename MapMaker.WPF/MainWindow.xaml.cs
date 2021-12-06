@@ -83,6 +83,9 @@ namespace MapMaker.WPF
             _builder.Title = TbTitle.Text;
             _builder.Description = TbDescription.Text;
             _builder.UnlockThreshold = int.Parse(TbUnlockThreshold.Text);
+            _builder.AmountsGiven.grass = int.Parse(TbGrass.Text);
+            _builder.AmountsGiven.sand = int.Parse(TbSand.Text);
+            _builder.AmountsGiven.street = int.Parse(TbStreet.Text);
             
             var saveFileDialog = new SaveFileDialog
             {
@@ -110,6 +113,9 @@ namespace MapMaker.WPF
                 TbTitle.Text = _builder.Title;
                 TbDescription.Text = _builder.Description;
                 TbUnlockThreshold.Text = _builder.UnlockThreshold.ToString();
+                TbGrass.Text = _builder.AmountsGiven.grass.ToString();
+                TbSand.Text = _builder.AmountsGiven.sand.ToString();
+                TbStreet.Text = _builder.AmountsGiven.street.ToString();
                 
                 LoadMap();
             }

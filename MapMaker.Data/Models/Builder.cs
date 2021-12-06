@@ -14,6 +14,7 @@ namespace MapMaker.Data.Models
         public string Title;
         public string Description;
         public int UnlockThreshold;
+        public Json.TileAmount AmountsGiven { get; set; } = new();
         public List<Tile> Map = new();
         public const int Size = 25;
 
@@ -58,6 +59,7 @@ namespace MapMaker.Data.Models
                 Title = json.title;
                 Description = json.description;
                 UnlockThreshold = json.unlockThreshold;
+                AmountsGiven = json.amountsGiven;
 
                 foreach (var tile in json.tiles)
                 {

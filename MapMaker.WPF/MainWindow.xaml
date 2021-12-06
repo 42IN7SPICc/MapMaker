@@ -12,9 +12,24 @@
         </Grid.ColumnDefinitions>
         
         <StackPanel Grid.Column="0" Orientation="Vertical">
+            <TextBlock Text="Level Name" Margin="0,8,0,0"></TextBlock>
             <TextBox x:Name="TbTitle" Text="Level Name"></TextBox>
+            
+            <TextBlock Text="Level Description" Margin="0,8,0,0"></TextBlock>
             <TextBox x:Name="TbDescription" Text="Level Description"></TextBox>
+            
+            <TextBlock Text="Unlock Threshold" Margin="0,8,0,0"></TextBlock>
             <TextBox x:Name="TbUnlockThreshold" Text="0" PreviewTextInput="TbUnlockThreshold_OnPreviewTextInput" DataObject.Pasting="TbUnlockThreshold_OnPasting"></TextBox>
+            
+            <TextBlock Text="Street tiles" Margin="0,8,0,0"></TextBlock>
+            <TextBox x:Name="TbStreet" Text="0" PreviewTextInput="TbUnlockThreshold_OnPreviewTextInput" DataObject.Pasting="TbUnlockThreshold_OnPasting"></TextBox>
+            
+            <TextBlock Text="Grass tiles" Margin="0,8,0,0"></TextBlock>
+            <TextBox x:Name="TbGrass" Text="0" PreviewTextInput="TbUnlockThreshold_OnPreviewTextInput" DataObject.Pasting="TbUnlockThreshold_OnPasting"></TextBox>
+            
+            <TextBlock Text="Sand tiles" Margin="0,8,0,0"></TextBlock>
+            <TextBox x:Name="TbSand" Text="0" PreviewTextInput="TbUnlockThreshold_OnPreviewTextInput" DataObject.Pasting="TbUnlockThreshold_OnPasting"></TextBox>
+            
             <ComboBox x:Name="SelectedType">
                 <ComboBoxItem Content="Bushes"></ComboBoxItem>
                 <ComboBoxItem Content="Grass"></ComboBoxItem>

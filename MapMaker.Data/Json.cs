@@ -8,6 +8,8 @@ namespace MapMaker.Data
         public string title { get; set; } = "level name";
         public string description { get; set; } = "level description";
         public int unlockThreshold { get; set; } = 0;
+
+        public TileAmount amountsGiven { get; set; } = new();
         public List<JsonTile> tiles { get; set; } = new();
 
         public Json()
@@ -19,6 +21,7 @@ namespace MapMaker.Data
             title = builder.Title;
             description = builder.Description;
             unlockThreshold = builder.UnlockThreshold;
+            amountsGiven = builder.AmountsGiven;
             
             foreach (var tile in builder.Map)
             {
@@ -37,5 +40,14 @@ namespace MapMaker.Data
             public int x { get; set; }
             public int y { get; set; }
         }
+        
+        public class TileAmount
+        {
+            public int sand { get; set; }
+            public int street { get; set; }
+            public int grass { get; set; }
+        }
     }
+
+    
 }
